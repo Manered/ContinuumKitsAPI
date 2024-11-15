@@ -7,6 +7,8 @@ import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 
 public class CategoryItem {
+    private static final NamespacedKey KEY = new NamespacedKey("continuum_kits", "should_cancel_click_events");
+
     private final ItemStack item;
     private final boolean cancelClickEvents;
 
@@ -46,10 +48,10 @@ public class CategoryItem {
         final ItemStack item = categoryItem.getItem();
 
         item.editMeta(meta -> meta.getPersistentDataContainer().set(
-            new NamespacedKey("continuum_kits", "should_cancel_click_events"),
+            KEY,
             PersistentDataType.BOOLEAN,
-            categoryItem.shouldCancelClickEvents())
-        );
+            categoryItem.shouldCancelClickEvents()
+        ));
 
         return item;
     }
@@ -59,7 +61,7 @@ public class CategoryItem {
         if (meta == null || !item.hasItemMeta()) return false;
 
         return Boolean.TRUE.equals(meta.getPersistentDataContainer().get(
-            new NamespacedKey("continuum_kits", "should_cancel_click_events"),
+            KEY,
             PersistentDataType.BOOLEAN
         ));
     }
