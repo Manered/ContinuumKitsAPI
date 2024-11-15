@@ -1,2 +1,17 @@
-# Project exclude paths
-/.gradle/
+.idea/
+.gradle/
+.gradle/8.8/fileHashes/fileHashes.lock
+.idea/modules.xml
+.idea/workspace.xml
+.gradle/8.8/checksums/checksums.lock
+*.lock
+*.bin
+*.xml
+*.class
+*.jar
+build/
+build/libs/
+build/classes/
+build/generated/
+build/resources/
+build/tmp/
