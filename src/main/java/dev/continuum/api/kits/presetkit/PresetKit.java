@@ -4,6 +4,7 @@ import dev.continuum.api.kits.SavedContents;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public interface PresetKit {
         setDescription(List.of(description));
     }
 
-    void setDisplayName(final @NotNull String displayName);
+    void setDisplayName(final @Nullable String displayName);
 
     default void clearDescription() {
         setDescription();

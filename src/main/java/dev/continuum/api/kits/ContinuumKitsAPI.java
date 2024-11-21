@@ -41,17 +41,41 @@ public interface ContinuumKitsAPI {
 
     @NotNull
     @CanIgnoreReturnValue
-    CompletableFuture<Void> loadKit(final @NotNull Player player, final int position);
+    CompletableFuture<Void> loadKit(final @NotNull Player player, final int position, final boolean silent);
 
     @NotNull
     @CanIgnoreReturnValue
-    CompletableFuture<Void> loadEnderChest(final @NotNull Player player, final int position);
+    CompletableFuture<Void> loadEnderChest(final @NotNull Player player, final int position, final boolean silent);
 
     @NotNull
     @CanIgnoreReturnValue
-    CompletableFuture<Void> loadAutoKit(final @NotNull Player player);
+    CompletableFuture<Void> loadAutoKit(final @NotNull Player player, final boolean silent);
 
     @NotNull
     @CanIgnoreReturnValue
-    CompletableFuture<Void> loadPresetKit(final @NotNull Player player, final @NotNull String identifier);
+    CompletableFuture<Void> loadPresetKit(final @NotNull Player player, final @NotNull String identifier, final boolean silent);
+
+    @NotNull
+    @CanIgnoreReturnValue
+    default CompletableFuture<Void> loadKit(final @NotNull Player player, final int position) {
+        return loadKit(player, position, false);
+    }
+
+    @NotNull
+    @CanIgnoreReturnValue
+    default CompletableFuture<Void> loadEnderChest(final @NotNull Player player, final int position) {
+        return loadEnderChest(player, position, false);
+    }
+
+    @NotNull
+    @CanIgnoreReturnValue
+    default CompletableFuture<Void> loadAutoKit(final @NotNull Player player) {
+        return loadAutoKit(player, false);
+    }
+
+    @NotNull
+    @CanIgnoreReturnValue
+    default CompletableFuture<Void> loadPresetKit(final @NotNull Player player, final @NotNull String identifier) {
+        return loadPresetKit(player, identifier, false);
+    }
 }
