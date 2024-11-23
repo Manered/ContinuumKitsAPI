@@ -33,5 +33,5 @@ public interface KitRoomManager {
     CompletableFuture<KitRoomCategory> retrieve(final @NotNull String identifier);
 
     @NotNull
-    CompletableFuture<KitRoomCategory> delete(final @NotNull String identifier);
+    CompletableFuture<Void> delete(final @NotNull String identifier);
 }
