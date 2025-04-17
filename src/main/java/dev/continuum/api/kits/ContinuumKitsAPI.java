@@ -8,7 +8,6 @@ import dev.continuum.api.kits.presetkit.PresetKitManager;
 import dev.continuum.api.kits.util.PermissionConstants;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.minecart.CommandMinecart;
 import org.bukkit.permissions.Permissible;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
