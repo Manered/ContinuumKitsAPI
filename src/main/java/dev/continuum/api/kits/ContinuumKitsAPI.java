@@ -5,8 +5,11 @@ import dev.continuum.api.kits.data.PlayerDataManager;
 import dev.continuum.api.kits.event.EventManager;
 import dev.continuum.api.kits.kitroom.KitRoomManager;
 import dev.continuum.api.kits.presetkit.PresetKitManager;
+import dev.continuum.api.kits.util.PermissionConstants;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.minecart.CommandMinecart;
+import org.bukkit.permissions.Permissible;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.jetbrains.annotations.NotNull;
@@ -77,5 +80,17 @@ public interface ContinuumKitsAPI {
     @CanIgnoreReturnValue
     default CompletableFuture<Void> loadPresetKit(final @NotNull Player player, final @NotNull String identifier) {
         return loadPresetKit(player, identifier, false);
+    }
+
+    default boolean hasMoreKitSlots(final @NotNull Permissible permissible) {
+        return permissible.hasPermission(PermissionConstants.MORE_KITS) || permissible.hasPermission(PermissionConstants.ADMIN) ;
+    }
+
+    default boolean canEquipKits(final @NotNull Permissible permissible) {
+        return permissible.hasPermission(PermissionConstants.EQUIP_KITS);
+    }
+
+    default boolean isAdmin(final @NotNull Permissible permissible) {
+        return permissible.hasPermission(PermissionConstants.ADMIN);
     }
 }

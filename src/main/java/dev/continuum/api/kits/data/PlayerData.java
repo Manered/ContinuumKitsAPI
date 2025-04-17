@@ -33,8 +33,6 @@ public interface PlayerData {
         return Optional.ofNullable(Bukkit.getPlayer(getUUID()));
     }
 
-    // This is just a wrapper for YAML really.
-    // Note: The object can be a map containing String to Object
     @NotNull
     @Unmodifiable
     Map<String, Object> getStoredData();

@@ -13,10 +13,10 @@ public interface PresetKitManager {
     Map<String, PresetKit> getCache();
 
     @NotNull
-    PresetKit cache(final @NotNull PresetKit presetKit);
+    PresetKit addToCache(final @NotNull PresetKit presetKit);
 
     @NotNull
-    PresetKit uncache(final @NotNull PresetKit presetKit);
+    PresetKit removeFromCache(final @NotNull PresetKit presetKit);
 
     @NotNull
     default Optional<PresetKit> getFromCache(final @NotNull String identifier) {
@@ -24,10 +24,7 @@ public interface PresetKitManager {
     }
 
     @NotNull
-    CompletableFuture<PresetKit> save(final @NotNull PresetKit presetKit);
-
-    @NotNull
-    CompletableFuture<PresetKit> update(final @NotNull PresetKit presetKit);
+    CompletableFuture<PresetKit> upsert(final @NotNull PresetKit presetKit);
 
     @NotNull
     CompletableFuture<PresetKit> retrieve(final @NotNull String identifier);

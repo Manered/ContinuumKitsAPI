@@ -13,10 +13,10 @@ public interface KitRoomManager {
     Map<String, KitRoomCategory> getCache();
 
     @NotNull
-    KitRoomCategory cache(final @NotNull KitRoomCategory category);
+    KitRoomCategory addToCache(final @NotNull KitRoomCategory category);
 
     @NotNull
-    KitRoomCategory uncache(final @NotNull KitRoomCategory category);
+    KitRoomCategory removeFromCache(final @NotNull KitRoomCategory category);
 
     @NotNull
     default Optional<KitRoomCategory> getFromCache(final @NotNull String identifier) {
@@ -24,10 +24,7 @@ public interface KitRoomManager {
     }
 
     @NotNull
-    CompletableFuture<KitRoomCategory> save(final @NotNull KitRoomCategory category);
-
-    @NotNull
-    CompletableFuture<KitRoomCategory> update(final @NotNull KitRoomCategory category);
+    CompletableFuture<KitRoomCategory> upsert(final @NotNull KitRoomCategory category);
 
     @NotNull
     CompletableFuture<KitRoomCategory> retrieve(final @NotNull String identifier);

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'dev.continuum.api.kits'
-version = '1.0.3'
+version = '1.0.4'
 
 repositories {
     mavenCentral()
@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
-    implementation('com.github.Manered:IMenus:v1.0.4')
+    implementation('com.github.Manered:IMenus:v1.1.0')
 }
 
 tasks {
