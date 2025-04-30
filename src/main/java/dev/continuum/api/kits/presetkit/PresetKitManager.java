@@ -30,5 +30,5 @@ public interface PresetKitManager {
     CompletableFuture<PresetKit> retrieve(final @NotNull String identifier);
 
     @NotNull
-    CompletableFuture<Void> delete(final @NotNull PresetKit presetKit);
+    CompletableFuture<Void> delete(final @NotNull String identifier);
 }

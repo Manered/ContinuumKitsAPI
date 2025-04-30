@@ -1,9 +1,12 @@
 package dev.continuum.api.kits;
 
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
+import dev.continuum.api.kits.data.PlayerData;
 import dev.continuum.api.kits.data.PlayerDataManager;
 import dev.continuum.api.kits.event.EventManager;
+import dev.continuum.api.kits.kitroom.KitRoomCategory;
 import dev.continuum.api.kits.kitroom.KitRoomManager;
+import dev.continuum.api.kits.presetkit.PresetKit;
 import dev.continuum.api.kits.presetkit.PresetKitManager;
 import dev.continuum.api.kits.util.PermissionConstants;
 import org.bukkit.Bukkit;
@@ -14,6 +17,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 public interface ContinuumKitsAPI {
@@ -82,7 +86,7 @@ public interface ContinuumKitsAPI {
     }
 
     default boolean hasMoreKitSlots(final @NotNull Permissible permissible) {
-        return permissible.hasPermission(PermissionConstants.MORE_KITS) || permissible.hasPermission(PermissionConstants.ADMIN) ;
+        return permissible.hasPermission(PermissionConstants.MORE_KITS) || permissible.hasPermission(PermissionConstants.ADMIN);
     }
 
     default boolean canEquipKits(final @NotNull Permissible permissible) {
@@ -92,4 +96,13 @@ public interface ContinuumKitsAPI {
     default boolean isAdmin(final @NotNull Permissible permissible) {
         return permissible.hasPermission(PermissionConstants.ADMIN);
     }
+
+    @NotNull
+    PlayerData newPlayerData(final @NotNull UUID uuid);
+
+    @NotNull
+    PresetKit newPresetKit(final @NotNull String identifier);
+
+    @NotNull
+    KitRoomCategory newKitRoomCategory(final @NotNull String identifier);
 }
