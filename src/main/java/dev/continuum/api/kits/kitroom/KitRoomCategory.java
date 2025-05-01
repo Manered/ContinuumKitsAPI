@@ -17,4 +17,9 @@ public interface KitRoomCategory {
     void setIcon(final @Nullable Material icon);
 
     void setContents(final @NotNull CategorySavedContents contents);
+
+    @NotNull
+    String getDisplayName();
+
+    void setDisplayName(final @NotNull String displayName);
 }
